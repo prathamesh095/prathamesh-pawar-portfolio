@@ -29,7 +29,7 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel
 
 // Project data (unchanged from original)
 const projects = [
@@ -469,6 +469,13 @@ const projects = [
     achievements: ["Reduced costs by 15%", "Improved delivery times by 18%"],
   },
 ]
+
+// Add generateStaticParams for static site generation
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }));
+}
 
 export default function ProjectDetailsPage() {
   const params = useParams()
