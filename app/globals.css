@@ -1,0 +1,289 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to dynamic rose/pink professional theme with vibrant accents */
+  --background: #ffffff; /* Clean white background */
+  --foreground: #475569; /* Deep slate gray for text */
+  --card: #fdf2f8; /* Soft light pink for cards */
+  --card-foreground: #475569; /* Slate gray text on cards */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #475569; /* Slate gray popover text */
+  --primary: #be123c; /* Vibrant rose-600 primary */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #475569; /* Slate gray secondary */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+  --muted: #fdf2f8; /* Light pink muted background */
+  --muted-foreground: #475569; /* Slate gray muted text */
+  --accent: #ec4899; /* Bright pink accent */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #dc2626; /* Red error color */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #e5e7eb; /* Light gray border */
+  --input: #f3f4f6; /* Light gray input background */
+  --ring: #ec4899; /* Pink focus ring */
+  --chart-1: #be123c; /* Rose chart color */
+  --chart-2: #ec4899; /* Pink chart color */
+  --chart-3: #475569; /* Slate chart color */
+  --chart-4: #fdf2f8; /* Light pink chart color */
+  --chart-5: #ffffff; /* White chart color */
+  --radius: 0.5rem; /* Reduced corner radius for modern look */
+  --sidebar: #fdf2f8; /* Light pink sidebar */
+  --sidebar-foreground: #475569; /* Slate sidebar text */
+  --sidebar-primary: #be123c; /* Rose sidebar primary */
+  --sidebar-primary-foreground: #ffffff; /* White sidebar primary text */
+  --sidebar-accent: #ec4899; /* Pink sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* White sidebar accent text */
+  --sidebar-border: #e5e7eb; /* Light gray sidebar border */
+  --sidebar-ring: #ec4899; /* Pink sidebar focus ring */
+}
+
+.dark {
+  /* Updated dark mode for rose/pink theme with enhanced contrast */
+  --background: #0f172a; /* Deep slate background */
+  --foreground: #f1f5f9; /* Light slate text */
+  --card: #1e293b; /* Dark slate card background */
+  --card-foreground: #f1f5f9; /* Light slate card text */
+  --popover: #0f172a; /* Deep slate popover */
+  --popover-foreground: #f1f5f9; /* Light slate popover text */
+  --primary: #f43f5e; /* Brighter rose for dark mode */
+  --primary-foreground: #0f172a; /* Dark text on primary */
+  --secondary: #334155; /* Medium slate secondary */
+  --secondary-foreground: #f1f5f9; /* Light text on secondary */
+  --muted: #1e293b; /* Dark slate muted */
+  --muted-foreground: #94a3b8; /* Medium slate muted text */
+  --accent: #f472b6; /* Bright pink accent for dark mode */
+  --accent-foreground: #0f172a; /* Dark text on accent */
+  --destructive: #ef4444; /* Bright red for dark mode */
+  --destructive-foreground: #f1f5f9; /* Light text on destructive */
+  --border: #334155; /* Medium slate border */
+  --input: #1e293b; /* Dark slate input */
+  --ring: #f472b6; /* Pink focus ring */
+  --chart-1: #f43f5e; /* Bright rose chart */
+  --chart-2: #f472b6; /* Bright pink chart */
+  --chart-3: #94a3b8; /* Medium slate chart */
+  --chart-4: #334155; /* Dark slate chart */
+  --chart-5: #1e293b; /* Darker slate chart */
+  --sidebar: #1e293b; /* Dark slate sidebar */
+  --sidebar-foreground: #f1f5f9; /* Light sidebar text */
+  --sidebar-primary: #f43f5e; /* Bright rose sidebar primary */
+  --sidebar-primary-foreground: #0f172a; /* Dark sidebar primary text */
+  --sidebar-accent: #334155; /* Medium slate sidebar accent */
+  --sidebar-accent-foreground: #f1f5f9; /* Light sidebar accent text */
+  --sidebar-border: #334155; /* Medium slate sidebar border */
+  --sidebar-ring: #f472b6; /* Pink sidebar focus ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Updated to rose/pink gradient grid background with professional patterns */
+    background-image: linear-gradient(rgba(190, 18, 60, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(190, 18, 60, 0.04) 1px, transparent 1px),
+      radial-gradient(circle at 20% 80%, rgba(190, 18, 60, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+      linear-gradient(45deg, rgba(190, 18, 60, 0.02) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(236, 72, 153, 0.02) 25%, transparent 25%);
+    background-size: 60px 60px, 60px 60px, 800px 800px, 600px 600px, 40px 40px, 40px 40px;
+    background-attachment: fixed;
+  }
+
+  /* Enhanced grid animation with professional rose/pink gradients */
+  @keyframes grid-move {
+    0% {
+      background-position: 0 0, 0 0, 0% 0%, 100% 100%, 0 0, 0 0;
+    }
+    50% {
+      background-position: 30px 30px, 30px 30px, 100% 100%, 0% 0%, 20px 20px, 20px 20px;
+    }
+    100% {
+      background-position: 60px 60px, 60px 60px, 0% 0%, 100% 100%, 40px 40px, 40px 40px;
+    }
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(190, 18, 60, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(190, 18, 60, 0.02) 1px, transparent 1px),
+      radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.05) 0%, transparent 60%),
+      linear-gradient(30deg, rgba(190, 18, 60, 0.01) 50%, transparent 50%);
+    background-size: 120px 120px, 120px 120px, 1000px 1000px, 200px 200px;
+    animation: grid-move 25s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Added smooth scrolling and performance optimizations */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+
+  /* Added performance optimizations and animation utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Updated custom animations with rose/pink theme colors */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(1deg);
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 8px rgba(190, 18, 60, 0.4), 0 0 16px rgba(236, 72, 153, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(190, 18, 60, 0.7), 0 0 32px rgba(236, 72, 153, 0.4);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Updated gradient pulse animation with new rose/pink colors */
+  @keyframes gradient-pulse {
+    0%,
+    100% {
+      background: linear-gradient(45deg, rgba(190, 18, 60, 0.1), rgba(236, 72, 153, 0.1));
+    }
+    50% {
+      background: linear-gradient(45deg, rgba(236, 72, 153, 0.15), rgba(190, 18, 60, 0.15));
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(190, 18, 60, 0.3), rgba(236, 72, 153, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+  }
+
+  .animate-gradient-pulse {
+    animation: gradient-pulse 4s ease-in-out infinite;
+  }
+
+  /* Added reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Disable grid animation for users who prefer reduced motion */
+    body::before {
+      animation: none;
+    }
+  }
+
+  /* Added focus styles for better accessibility */
+  .focus-visible:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+}
+/* Updated theme description for new rose/pink professional color scheme */
+/* You can change the colors of this project by editing the color variables in this file: /app/globals.css. 
+  This theme uses a dynamic rose/pink professional palette with vibrant accents for a modern, engaging look.
+  Specifically, modify the CSS custom properties (variables) under the :root and .dark selectors at the top of this file. */
